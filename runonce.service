@@ -1,6 +1,6 @@
 [Unit]
-Description=First Start (builds certs for sendmail and cyrus)
-Before=sendmail.service cyrus-imapd.service
+Description=First Start (builds certs for sendmail)
+Before=sendmail.service
 
 [Service]
 Type=oneshot
