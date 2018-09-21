@@ -28,7 +28,9 @@ RUN yum install -y  \
 	perl \
 	perl-Net-DNS \
 	openldap-clients \
-	openssh-clients
+	openssh-clients \
+        rsync \
+        make
  
 RUN yum clean all; systemctl enable sendmail.service;
 
