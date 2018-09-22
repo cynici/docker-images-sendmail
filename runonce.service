@@ -4,6 +4,7 @@ Before=sendmail.service
 
 [Service]
 Type=oneshot
+EnvironmentFile=-/runonce.env
 ExecStart=/usr/local/sbin/runonce
 
 [Install]

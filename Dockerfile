@@ -23,6 +23,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 RUN yum install -y  \
 	sendmail \
 	sendmail-cf \
+	cyrus-imapd \
 	# for running legacy intsup scipts \
         epel-release \
 	perl \
@@ -30,9 +31,8 @@ RUN yum install -y  \
 	openldap-clients \
 	openssh-clients \
         rsync \
-        make
- 
-RUN yum clean all; systemctl enable sendmail.service;
+        make \
+    yum clean all; systemctl enable sendmail.service;
 
 ADD sendmail.cf /etc/mail/
 ADD sendmail.mc /etc/mail/

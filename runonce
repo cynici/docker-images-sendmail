@@ -10,4 +10,12 @@ if [ ! -f /etc/mail/sendmail.mc ]; then
 fi
 rm -f /root/etc_mail.tgz
 
+if [ -n "${MAIL_UID:-}" ]; then
+	usermod --uid $MAIL_UID mail
+fi
+
+if [ -n "${MAIL_GID:-}" ]; then
+	groupmod --gid $MAIL_GID mail
+fi
+
 systemctl disable runonce

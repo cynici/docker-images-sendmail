@@ -24,4 +24,4 @@ As the image uses systemd it does need access to cgroups, this is done by mounti
 
 Usage
 
-docker run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /tmp/$(mktemp -d):/run -e \"container=docker\"
+docker run --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro -v /tmp/$(mktemp -d):/run -e \"container=docker\"
