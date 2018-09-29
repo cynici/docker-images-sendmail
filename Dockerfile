@@ -32,8 +32,11 @@ RUN yum install -y  \
 	openssh-clients \
         rsync \
         make \
+        cyrus-sasl-plain \
+        nss-pam-ldapd \
  && yum clean all \
  && systemctl enable sendmail.service \
+ && systemctl enable nslcd.service \
  && systemctl enable cyrus-imapd.service
 
 ADD sendmail.cf /etc/mail/
