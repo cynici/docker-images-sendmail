@@ -36,6 +36,7 @@ RUN yum install -y  \
         nss-pam-ldapd \
  && yum clean all \
  && systemctl enable sendmail.service \
+ && systemctl enable saslauthd.service \
  && systemctl enable nslcd.service \
  && systemctl enable cyrus-imapd.service
 
