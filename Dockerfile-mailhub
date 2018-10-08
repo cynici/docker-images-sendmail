@@ -28,28 +28,20 @@ RUN yum install -y  \
         epel-release \
 	perl \
 	perl-Net-DNS \
-	openldap-clients \
-	openssh-clients \
         rsync \
         make \
-        cyrus-sasl-plain \
-        nss-pam-ldapd \
  && yum clean all \
- && systemctl enable sendmail.service \
- && systemctl enable saslauthd.service \
- && systemctl enable nslcd.service \
- && systemctl enable cyrus-imapd.service
+ && systemctl enable sendmail.service
 
 ADD sendmail.cf /etc/mail/
 ADD sendmail.mc /etc/mail/
-ADD imapd.conf /etc/
 ADD runonce.service /etc/systemd/system/default.target.wants/
 ADD runonce /usr/local/sbin/
 
 RUN chmod u+x /usr/local/sbin/runonce
 
 EXPOSE 25 587 465 993 143 
-VOLUME ["/var/spool/imap", "/var/lib/imap", "/var/spool/mqueue", "/etc/mail", "/etc/pki/tls/certs/", "/sys/fs/cgroup" ]
+VOLUME ["/var/spool/mqueue", "/etc/mail", "/etc/pki/tls/certs/", "/sys/fs/cgroup" ]
 
 CMD ["/usr/sbin/init"]
 
