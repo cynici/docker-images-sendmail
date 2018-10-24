@@ -30,6 +30,8 @@ RUN yum install -y  \
 	perl-Net-DNS \
         rsync \
         make \
+        telnet \
+        less \
  && yum clean all \
  && systemctl enable sendmail.service
 

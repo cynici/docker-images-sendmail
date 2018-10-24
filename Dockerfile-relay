@@ -34,6 +34,8 @@ RUN yum install -y  \
         make \
         cyrus-sasl-plain \
         nss-pam-ldapd \
+        telnet \
+        less \
  && yum clean all \
  && systemctl enable sendmail.service \
  && systemctl enable saslauthd.service \
