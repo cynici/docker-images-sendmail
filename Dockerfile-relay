@@ -36,6 +36,7 @@ RUN yum install -y  \
         nss-pam-ldapd \
         telnet \
         less \
+        lsof \
  && yum clean all \
  && systemctl enable sendmail.service \
  && systemctl enable saslauthd.service \
