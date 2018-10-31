@@ -37,6 +37,7 @@ RUN yum install -y  \
         telnet \
         less \
         lsof \
+        strace \
  && yum clean all \
  && systemctl enable sendmail.service \
  && systemctl enable saslauthd.service \
